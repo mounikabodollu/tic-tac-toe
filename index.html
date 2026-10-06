@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131f">
+  <title>Tic-Tac-Toe | Make your move</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="header">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> THE CLASSIC, REIMAGINED</p>
+      <h1><span class="title-icon" aria-hidden="true">🎮</span> Tic<span>-</span>Tac<span>-</span>Toe</h1>
+      <p class="subtitle">Three in a row. Make it count.</p>
+    </header>
+
+    <section class="game-card" aria-label="Tic-Tac-Toe game">
+      <section class="mode-picker" id="game-selection" aria-labelledby="selection-title">
+        <h2 id="selection-title">Choose Your Game Mode</h2>
+        <p>Pick a mode to get started.</p>
+        <div class="mode-buttons">
+          <button class="mode-button" type="button" data-mode="pvp">
+            <span class="mode-icon" aria-hidden="true">👥</span>
+            <span><strong>Player vs Player</strong><small>Take turns with a friend</small></span>
+            <span class="mode-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="mode-button" type="button" data-mode="computer">
+            <span class="mode-icon computer-icon" aria-hidden="true">🤖</span>
+            <span><strong>Player vs Computer</strong><small>Can you beat the machine?</small></span>
+            <span class="mode-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="setup-area" id="player-setup" aria-labelledby="setup-title" hidden>
+        <h2 id="setup-title"></h2>
+        <p class="setup-description">Add names to get the match started.</p>
+        <form id="setup-form" novalidate>
+          <div id="player-name-fields"></div>
+          <p class="validation-message" id="validation-message" role="alert" hidden></p>
+          <div class="setup-actions">
+            <button class="restart-button start-button" type="submit">Start Game</button>
+            <button class="text-button back-button" id="back-to-selection" type="button">← Back</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="game-area" id="game-container" aria-label="Game in progress" hidden>
+        <div class="game-topline">
+          <span class="mode-label" id="mode-label"></span>
+          <button class="text-button" id="change-mode" type="button">← Change Game Mode</button>
+        </div>
+
+        <div class="player-matchup" id="player-matchup" aria-label="Players"></div>
+        <div class="status-panel" aria-live="polite" aria-atomic="true">
+          <span class="turn-symbol" id="turn-symbol" aria-hidden="true">X</span>
+          <div>
+            <p class="status-label" id="status-label">YOUR TURN</p>
+            <p class="status-message" id="status-message">Player 1, you're up.</p>
+          </div>
+          <span class="status-pulse" id="status-pulse" aria-hidden="true"></span>
+        </div>
+
+        <div class="board" id="board" role="grid" aria-label="Tic-Tac-Toe board">
+          <button class="cell" type="button" role="gridcell" data-index="0" aria-label="Row 1, column 1"></button>
+          <button class="cell" type="button" role="gridcell" data-index="1" aria-label="Row 1, column 2"></button>
+          <button class="cell" type="button" role="gridcell" data-index="2" aria-label="Row 1, column 3"></button>
+          <button class="cell" type="button" role="gridcell" data-index="3" aria-label="Row 2, column 1"></button>
+          <button class="cell" type="button" role="gridcell" data-index="4" aria-label="Row 2, column 2"></button>
+          <button class="cell" type="button" role="gridcell" data-index="5" aria-label="Row 2, column 3"></button>
+          <button class="cell" type="button" role="gridcell" data-index="6" aria-label="Row 3, column 1"></button>
+          <button class="cell" type="button" role="gridcell" data-index="7" aria-label="Row 3, column 2"></button>
+          <button class="cell" type="button" role="gridcell" data-index="8" aria-label="Row 3, column 3"></button>
+        </div>
+
+        <div class="game-footer">
+          <span class="hint"><span class="hint-dot"></span> First to three wins</span>
+          <button class="restart-button" id="restart-game" type="button"><span aria-hidden="true">↻</span> Restart game</button>
+        </div>
+      </section>
+
+      <section class="result-area" id="result-screen" aria-live="polite" aria-labelledby="result-title" hidden>
+        <div class="result-emoji" id="result-emoji" aria-hidden="true"></div>
+        <p class="result-kicker" id="result-kicker"></p>
+        <h2 id="result-title" tabindex="-1"></h2>
+        <p class="result-message" id="result-message"></p>
+        <div class="result-board" id="result-board" aria-label="Final board"></div>
+        <div class="result-actions">
+          <button class="restart-button start-button" id="play-again" type="button">Play Again</button>
+          <button class="text-button result-change-button" id="result-change-mode" type="button">← Change Game Mode</button>
+        </div>
+        <div class="confetti" id="confetti" aria-hidden="true"></div>
+      </section>
+    </section>
+    <footer class="page-footer">A little strategy goes a long way <span aria-hidden="true">✦</span></footer>
+  </main>
+</body>
+</html>
